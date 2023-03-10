@@ -7,6 +7,9 @@ import (
 
 // AutoTable 自动建表
 func AutoTable(info interface{}) {
+	if info == nil {
+		return
+	}
 	//1、扫描po包获取对象
 	// 检测User结构体对应的表是否存在
 
