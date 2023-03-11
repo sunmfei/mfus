@@ -17,7 +17,7 @@ func Page(workDir string, typ string, info interface{}) (*gorm.DB, *redisUtil.Re
 
 func Setup(workDir string) {
 	//读取配置文件
-	commonUtils.ReadConf(workDir)
+	commonUtils.ReadConf(&workDir)
 	initLogger()
 
 }
