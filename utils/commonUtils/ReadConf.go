@@ -7,12 +7,15 @@ import (
 )
 
 // ReadConf 读取配置文件配置
-func ReadConf(workDir string) {
+func ReadConf(workDir *string) {
+	if workDir == nil {
+		return
+	}
 	//workDir, _ := os.Getwd()
 	//log.Println("workDir：", workDir)
 	viper.SetConfigName("application")
 	viper.SetConfigType("yaml")
-	viper.AddConfigPath(workDir)
+	viper.AddConfigPath(*workDir)
 	err := viper.ReadInConfig()
 	if err != nil {
 		_, ok := err.(viper.ConfigFileNotFoundError)
