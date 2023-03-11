@@ -14,7 +14,10 @@ func Page(workDir string, typ string, info interface{}) (*gorm.DB, *redisUtil.Re
 	autoTable(db, info)
 	return db, GetRedis()
 }
-
+func ReadConf(workDir string) {
+	//读取配置文件
+	commonUtils.ReadConf(&workDir)
+}
 func Setup(workDir string) {
 	//读取配置文件
 	commonUtils.ReadConf(&workDir)
